@@ -47,5 +47,11 @@ public class Jugador {
         this.bici = bici;
     }
 
+    public boolean isBloqueado() {
+        return bloqueado;
+    }
 
+    public void setBloqueado(boolean bloqueado) {
+        this.bloqueado = bloqueado;
+    }
 }

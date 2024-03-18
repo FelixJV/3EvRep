@@ -12,6 +12,8 @@ public class Tablero {
                 tablero[i] = new Bici();
             }else if(i==14||i==30||i==46||i==62||i==78){
                 tablero[i]=new Mercadillo();
+            }else if(i==16||i==32||i==48||i==64||i==80){
+                tablero[i]=new Atajo();
             }else if(i==94){
                 tablero[i]=new DrogasNo();
             }else if(i==95){

@@ -14,20 +14,31 @@ public class Main {
         Dado dado = new Dado();
         Jugador jugador1 = new Jugador();
         Jugador jugador2 = new Jugador();
-        tablero.pintarTablero();
+
         boolean victoria = false;
         do {
+            tablero.pintarTablero();
             System.out.println(juego.DimeTurno());
+
+            if (!juego.isTurno()) {
+                if(!jugador1.isBloqueado()) {
+                    dado.tirarDado(jugador1);
+                    tablero.compararPos(jugador1.getPosicion(), juego, jugador1);
+                }else{
+                    System.out.println("Bloqueado. No haberte metido por el mercadillo.");
+                }
+            }else {
+                if(!jugador2.isBloqueado()) {
+                    dado.tirarDado(jugador2);
+                    tablero.compararPos(jugador2.getPosicion(), juego, jugador2);
+                }else{
+                    System.out.println("Bloqueado. No haberte metido por el mercadillo.");
+                    jugador1.setBloqueado(false);
+                }
+            }
             jugador1.pintarJugador();
             jugador2.pintarJugador();
-            if (!juego.isTurno()) {
-                dado.tirarDado(jugador1);
-                tablero.compararPos(jugador1.getPosicion(),juego,jugador1);
-            }else {
-                dado.tirarDado(jugador2);
-                tablero.compararPos(jugador2.getPosicion(),juego,jugador2);
-            }
-            juego.setTurno(!juego.isTurno()); //ojo aquí no, en todas las casillas menos atajo
+            //ojo aquí no, en todas las casillas menos atajos
             if(jugador1.getPosicion()==95||jugador2.getPosicion()==95){
                 victoria=true;
             }
