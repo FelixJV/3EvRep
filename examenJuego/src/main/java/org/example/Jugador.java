@@ -7,14 +7,15 @@ public class Jugador {
     private String nombre;
     private boolean bici;
 
-    Faker faker = new Faker();
+    private boolean bloqueado;
+
+
     public Jugador(String nombre){
         this.nombre = nombre;
-        bici = false;
-        posicion=0;
     }
 
     public Jugador(){
+        Faker faker = new Faker();
         nombre = faker.funnyName().name();
         bici=false;
     }
@@ -46,11 +47,5 @@ public class Jugador {
         this.bici = bici;
     }
 
-    public Faker getFaker() {
-        return faker;
-    }
 
-    public void setFaker(Faker faker) {
-        this.faker = faker;
-    }
 }

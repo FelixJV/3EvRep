@@ -31,7 +31,7 @@ public class Tablero {
             }
         }
     }
-    public void compararPos(int pos){
-        tablero[pos].funcion();
+    public void compararPos(int pos, Juego juego, Jugador jugador){
+        tablero[pos].funcion(juego,jugador);
     }
 }

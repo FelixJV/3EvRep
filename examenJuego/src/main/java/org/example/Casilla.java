@@ -5,7 +5,7 @@ public abstract class Casilla {
 
     public Casilla(){
     }
-    public abstract void funcion();
+    public abstract void funcion(Juego juego, Jugador jugador);
 
     @Override
     public String toString() {

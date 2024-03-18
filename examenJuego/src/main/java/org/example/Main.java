@@ -17,16 +17,17 @@ public class Main {
         tablero.pintarTablero();
         boolean victoria = false;
         do {
-            juego.DimeTurno();
+            System.out.println(juego.DimeTurno());
             jugador1.pintarJugador();
             jugador2.pintarJugador();
             if (!juego.isTurno()) {
                 dado.tirarDado(jugador1);
-                tablero.compararPos(jugador1.getPosicion());
+                tablero.compararPos(jugador1.getPosicion(),juego,jugador1);
             }else {
                 dado.tirarDado(jugador2);
-                tablero.compararPos(jugador2.getPosicion());
+                tablero.compararPos(jugador2.getPosicion(),juego,jugador2);
             }
+            juego.setTurno(!juego.isTurno()); //ojo aquí no, en todas las casillas menos atajo
             if(jugador1.getPosicion()==95||jugador2.getPosicion()==95){
                 victoria=true;
             }

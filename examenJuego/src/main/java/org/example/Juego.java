@@ -3,6 +3,7 @@ package org.example;
 public class Juego {
     private boolean turno;
 
+
     public Juego(){
         turno = false;
     }

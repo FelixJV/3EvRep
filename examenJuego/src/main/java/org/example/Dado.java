@@ -11,8 +11,7 @@ public class Dado {
     }
     public void tirarDado(Jugador jugador){
         int tirada = (int) (Math.random()*20);
-      jugador.setPosicion(tirada);
-
+        jugador.setPosicion(jugador.getPosicion()+tirada);
     }
     public String mostrarTirada(int tirada){
         return "picha";
