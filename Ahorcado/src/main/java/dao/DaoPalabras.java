@@ -16,4 +16,7 @@ public interface DaoPalabras {
     public boolean modificarPalabra(int id, String incognita);
     public void eliminarPalabra(Palabra Palabra) ;
     public void eliminarPalabra(int id) ;
+    public Palabra damePalabraAleatoria ();
+    public String damePalabraAleatoria (String categoria);
+
     }

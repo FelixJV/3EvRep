@@ -42,6 +42,15 @@ public class Palabra {
         Comprobacion.categoriaOk(categoria);
         this.categoria = categoria;
     }
+
+    public String getIncognita() {
+        return incognita;
+    }
+
+    public void setIncognita(String incognita) {
+        this.incognita = incognita;
+    }
+
     public void arraychar(String palabra){
         palabra.toCharArray();
     }

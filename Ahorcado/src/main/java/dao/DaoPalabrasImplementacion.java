@@ -57,6 +57,16 @@ public class DaoPalabrasImplementacion implements DaoPalabras {
     }
 
     @Override
+    public Palabra damePalabraAleatoria() {
+        return lista.damePalabraAleatoria();
+    }
+
+    @Override
+    public String damePalabraAleatoria(String categoria) {
+        return lista.damePalabraAdivinarCategoira(categoria);
+    }
+
+    @Override
     public boolean modificarCategoria(int id, String categoria) {
         return false;
     }

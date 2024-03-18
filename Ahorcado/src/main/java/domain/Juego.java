@@ -1,6 +1,10 @@
 package domain;
 
+import common.CategoriaException;
+
 import java.awt.color.ICC_ColorSpace;
+import java.sql.SQLOutput;
+import java.util.Scanner;
 
 public class Juego {
     //pensar en los atributos que definen el estado del juego en ese instante para que que si lo paran se pueda recuperar
@@ -9,31 +13,68 @@ public class Juego {
     private int intentos;
     private int dificultad; //opcional, aquí o por elemento.
 
+    private char[] palabra;
+
     public Juego() {
+        try {
+            this.aAdivinar = new Palabra(1,"Pikachu", "Pokemon");
+        } catch (CategoriaException e) {
+            System.out.println(e.getMessage());;
+        }
+        palabra = aAdivinar.getIncognita().toCharArray();
+        for (int i = 0; i < palabra.length; i++) {
+            palabra[i]=('_');
+        }
+
+    }
+    public void bucleJuego(){
+        boolean salir=false;
+        Scanner sc = new Scanner(System.in);
+        do {
+            System.out.println("Dime un letra o Juegatela");
+            String userStr = sc.nextLine();
+            if(userStr.length()==1){
+                char letra = userStr.charAt(0);
+                comprobarPalabra(letra);
+                munyeco();
+            }else if (userStr.length()>1){
+
+            }
+        }while(!salir);
     }
 
     public Juego(Palabra aAdivinar, Jugador jugador, int dificultad) {
         this.aAdivinar = aAdivinar;
         this.jugador = jugador;
-        intentos = 6;
+        intentos = 4;
         this.dificultad = dificultad;
     }
-    public void comprobarPalabra(char letra, String palabra,int intento){
-        char charpalabra [] = palabra.toCharArray();
-        if(palabra.contains(String.valueOf(letra))){
-            pintarPalabraCon(letra, palabra);
-        }else{
-            intento++;
+    public void comprobarPalabra( char letra){
+
+            if(aAdivinar.getIncognita().contains(String.valueOf(letra))){
+                actualizarPaPalabraCon(letra);
+                pintarPalabraCon(letra);
+            }else{
+                intentos--;
+            }
+
+
+    }
+
+    private void actualizarPaPalabraCon(char letra) {
+        //hacerlo RAM sustituir el _ por la letra
+       char [] incognitachar = aAdivinar.getIncognita().toCharArray();
+        for (int i = 0; i < palabra.length; i++) {
+
+            if (letra == incognitachar[i]) {
+                palabra[i] = letra;}
         }
     }
-    public void pintarPalabraCon(char letra, String palabra) {
-        char charpalabra [] = palabra.toCharArray();
-        for (int i = 0; i < charpalabra.length; i++) {
-            if (i == palabra.indexOf(letra)) {
-                System.out.println(letra);
-            } else {
-                System.out.println("_");
-            }
+
+    public void pintarPalabraCon(char letra) {
+
+        for (int i = 0; i < palabra.length; i++) {
+            System.out.print(palabra[i]);
         }
 
     }
@@ -44,22 +85,22 @@ public class Juego {
         }
     }
 
-    public void munyeco(int intento){
-        if (intento == 0 ){
+    public void munyeco(){
+        if (intentos == 0 ){
             System.out.println("________");
             System.out.println("|");
             System.out.println("|");
             System.out.println("|");
             System.out.println("|");
             System.out.println("|__");
-        }else if(intento == 1 ){
+        }else if(intentos == 1 ){
             System.out.println("________");
             System.out.println("|      O");
             System.out.println("|");
             System.out.println("|");
             System.out.println("|");
             System.out.println("|__");
-        }else if(intento == 2 ){
+        }else if(intentos == 2 ){
             System.out.println("________");
             System.out.println("|      O");
             System.out.println("|     /|}");
@@ -67,14 +108,14 @@ public class Juego {
             System.out.println("|");
             System.out.println("|__");
         }
-        else if(intento == 3 ){
+        else if(intentos == 3 ){
             System.out.println("________");
             System.out.println("|      O");
             System.out.println("|     /|}");
             System.out.println("|      |");
             System.out.println("|");
             System.out.println("|__");
-        }else if(intento == 4 ){
+        }else if(intentos == 4 ){
             System.out.println("________");
             System.out.println("|      O");
             System.out.println("|     /|}");

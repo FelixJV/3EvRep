@@ -107,4 +107,9 @@ public class GestionPalabras implements IGestionPalabras {
     public boolean cargarFicheroBinario() {
         return false;
     }
+
+    @Override
+    public String damePalabraAleatoria(String categoria) {
+        return daoPalabras.damePalabraAleatoria(categoria);
+    }
 }

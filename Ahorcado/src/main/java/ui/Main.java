@@ -7,6 +7,9 @@ import common.Comprobacion;
 import domain.Juego;
 import net.datafaker.Faker;
 
+import java.io.IOException;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args)  {
         //En el main sólo hay que llamar a los métodos de la UI que darán paso al luego o administrar diccionario.
@@ -21,8 +24,9 @@ public class Main {
             System.out.println(e.getMessage());
         }
 */
-Juego juego = new Juego();
-        Faker faker = new Faker();
+
+
+/*        Faker faker = new Faker();
         String nombre = faker.gameOfThrones().character();
         System.out.println("Un personaje de GoT");
         juego.pintarPalabraSin(nombre);
@@ -30,7 +34,7 @@ Juego juego = new Juego();
         do {
 
         }while(intento<5);
-
+*/
 
         //El siguiente código no va aquí pero es para que sepáis cómo funciona el id autonumérico
         /*Palabras asdf = new Palabras();
