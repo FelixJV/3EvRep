@@ -14,10 +14,16 @@ public class Dado {
         if(jugador.isBici()==true) {
             tirada = (int) (Math.random() * 20);
             jugador.setPosicion(jugador.getPosicion() + (tirada * 2));
+            if (jugador.getPosicion()>95){
+                jugador.setPosicion(95-(jugador.getPosicion()-95));
+            }
             System.out.println(tirada);
         }else{
             tirada = (int) (Math.random() * 20);
             jugador.setPosicion(jugador.getPosicion() + tirada);
+            if (jugador.getPosicion()>95){
+                jugador.setPosicion(95-(jugador.getPosicion()-95));
+            }
             System.out.println(tirada);
         }
     }

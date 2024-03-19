@@ -26,6 +26,7 @@ public class Main {
                     tablero.compararPos(jugador1.getPosicion(), juego, jugador1);
                 }else{
                     System.out.println("Bloqueado. No haberte metido por el mercadillo.");
+                    jugador1.setBloqueado(false);
                 }
             }else {
                 if(!jugador2.isBloqueado()) {
@@ -33,7 +34,7 @@ public class Main {
                     tablero.compararPos(jugador2.getPosicion(), juego, jugador2);
                 }else{
                     System.out.println("Bloqueado. No haberte metido por el mercadillo.");
-                    jugador1.setBloqueado(false);
+                    jugador2.setBloqueado(false);
                 }
             }
             jugador1.pintarJugador();
