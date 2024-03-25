@@ -14,6 +14,7 @@ public class Palabras {
     private static int autonumerico;
 
     public Palabras() {
+        //Aquí leer fichero cuando ya esté el fichero creado con las palabras del DataFaker
         this.palabras = new ArrayList<>();
 
         try {
@@ -51,21 +52,19 @@ public class Palabras {
         this.palabras.clear();
         this.palabras.addAll(Palabras);
     }
-    public Palabra damePalabraAleatoria(){
-        return palabras.get((int)(Math.random()*palabras.size()));
-    }
-    private List<Palabra> dameLista(String categoria){
-        ArrayList<Palabra> aux = new ArrayList<>();
-        for (int i = 0; i < palabras.size(); i++) {
-            if (palabras.get(i).getCategoria().equalsIgnoreCase(categoria))
-                aux.add(palabras.get(i)) ;
-        }
-        return aux;
-    }
-    public String damePalabraAdivinarCategoira (String categoria){
-        List<Palabra> lista = dameLista(categoria);
-        return lista.get((int)(Math.random()*lista.size())).getIncognita();
-    }
 
+    public boolean eliminaPalabra(int i) {
+        //i posicion
+        //palabras.remove(i);
+        //i -> id
+        boolean salir = false;
+        for (int j = 0; j < palabras.size() && !salir; j++) {
+            if (palabras.get(j).getId()==i) {
+                palabras.remove(j);
+                salir = true;
+            }
+        }
+        return salir;
+    }
 }
 

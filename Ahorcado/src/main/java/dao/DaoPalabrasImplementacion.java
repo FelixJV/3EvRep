@@ -2,6 +2,7 @@ package dao;
 
 import domain.Palabra;
 
+import java.util.Collections;
 import java.util.List;
 
 public class DaoPalabrasImplementacion implements DaoPalabras {
@@ -43,7 +44,11 @@ public class DaoPalabrasImplementacion implements DaoPalabras {
 
     @Override
     public List<Palabra> getPalabras(boolean ascendente) {
-        return null;
+        List<Palabra> aux = lista.getListaPalabras();
+        Collections.sort(aux);
+        if (!ascendente)
+            Collections.reverse(aux);
+        return aux;
     }
 
     @Override
@@ -52,18 +57,8 @@ public class DaoPalabrasImplementacion implements DaoPalabras {
     }
 
     @Override
-    public void eliminarPalabra(int id) {
-
-    }
-
-    @Override
-    public Palabra damePalabraAleatoria() {
-        return lista.damePalabraAleatoria();
-    }
-
-    @Override
-    public String damePalabraAleatoria(String categoria) {
-        return lista.damePalabraAdivinarCategoira(categoria);
+    public boolean eliminarPalabra(int id) {
+        return lista.eliminaPalabra(3);
     }
 
     @Override

@@ -1,40 +1,33 @@
 package ui;
 
 
-import common.Categoria;
-import common.CategoriaException;
-import common.Comprobacion;
-import domain.Juego;
-import net.datafaker.Faker;
-
-import java.io.IOException;
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args)  {
         //En el main sólo hay que llamar a los métodos de la UI que darán paso al luego o administrar diccionario.
 
+        GestionArranque gD= new GestionArranque();
+        gD.opciones();
+
 
         //Este código no va aquí, pero es para que veáis cómo funciona ciertos aspectos de la aplicación a tener en cuenta
-      /*  GestionDiccionario.mostrarMenu();
+        /*
         try {
             Comprobacion.categoriaOk(Categoria.comedia.name());
             Comprobacion.categoriaOk("hola");
         }catch (CategoriaException e){
             System.out.println(e.getMessage());
         }
-*/
 
 
-/*        Faker faker = new Faker();
+        Faker faker = new Faker();
         String nombre = faker.gameOfThrones().character();
-        System.out.println("Un personaje de GoT");
-        juego.pintarPalabraSin(nombre);
-        int intento=0;
-        do {
+        System.out.println(nombre);
+        String animal = faker.animal().name();
+        System.out.println(animal);
+        String fecha = faker.date().birthday(10,15).toString();
+        System.out.println(fecha);
 
-        }while(intento<5);
-*/
+
 
         //El siguiente código no va aquí pero es para que sepáis cómo funciona el id autonumérico
         /*Palabras asdf = new Palabras();

@@ -24,7 +24,7 @@ public class GestionDiccionario {
         servicio = new GestionPalabras();
     }
 
-    public static int mostrarMenu(){
+    public static void mostrarMenu(){
         Scanner lector = new Scanner(System.in);
         boolean salir1=false;
         do {
