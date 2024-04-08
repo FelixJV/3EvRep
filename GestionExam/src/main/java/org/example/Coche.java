@@ -1,11 +1,12 @@
 package org.example;
 
-public class Coche extends Vehiculo{
+public class Coche extends Vehiculo implements Comparable<Coche>{
     private int capacidad;
     private boolean superior;
 
 
-    public Coche(String id, double precioDia, String[] tipo, Direccion direccion, int anyoFabric, int capacidad, boolean superior) {
+
+    public Coche(String id, double precioDia, String tipo, Direccion direccion, int anyoFabric, int capacidad, boolean superior) {
         super(id, precioDia, tipo, anyoFabric, direccion);
         this.capacidad = capacidad;
         this.superior = superior;
@@ -13,6 +14,7 @@ public class Coche extends Vehiculo{
 
     public Coche(String prov) {
         super(prov);
+        precioDia = Math.random()*60+30;
        superior = false;
         capacidad = (int) (Math.random() * 30 +80);
     }
@@ -59,6 +61,11 @@ public class Coche extends Vehiculo{
 
     public void setSuperior(boolean superior) {
         this.superior = superior;
+    }
+
+    @Override
+    public int compareTo(Coche o) {
+        return Integer.compare(capacidad,o.capacidad);
     }
 }
 

@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 public class GestionDiccionario {
     private IGestionPalabras servicio;
-    //private Juego juego;
+    private Juego juego;
     private static final String pass = "2223";
 
     public GestionDiccionario(IGestionPalabras servicio) {
@@ -29,12 +29,11 @@ public class GestionDiccionario {
         boolean salir1=false;
         do {
 
-            System.out.println("1.- Jugar \n 2.- Admin");
+            System.out.println("1." + Constantes.JUGAR + "2." + Constantes.GESTIONAR);
             int op = lector.nextInt();
             switch (op){
                 case 1:
-                    Juego juego = new Juego();
-                    juego.bucleJuego();
+                    mostarMenuJugar();
                 break;
                 case 2:
 
@@ -44,5 +43,19 @@ public class GestionDiccionario {
         }while(salir1==false);
          //tratar la excepción para evitar que se pare el programa si no introduce un número
 
+    }
+    public static void mostarMenuJugar(){
+        boolean salir= false;
+        Scanner lector = new Scanner(System.in);
+        do{
+            System.out.println(Constantes.NUEVA + Constantes.CARGAR);
+            int op = lector.nextInt();
+            switch (op){
+                case 1:
+
+
+
+            }
+        }while(!salir);
     }
 }

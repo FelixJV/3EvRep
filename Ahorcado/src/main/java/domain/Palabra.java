@@ -5,7 +5,7 @@ import common.CategoriaException;
 import common.Comprobacion;
 import dao.Palabras;
 
-public class Palabra {
+public class Palabra implements Comparable{
     private int id;
     private int level;
     private String incognita;
@@ -34,6 +34,17 @@ public class Palabra {
         Comprobacion.categoriaOk(categoria);
         this.categoria = categoria;
     }
+    public Palabra(String cadena) throws CategoriaException {
+
+        String[] trozos = cadena.split(";");
+        //,Integer.parseInt(trozos[1]),trozos[2],trozos[3])
+        this.id = Integer.parseInt(trozos[0]);
+        Palabras.setAutonumerico(Palabras.getAutonumerico()+1);
+        this.level = Integer.parseInt(trozos[1]);
+        this.incognita = (trozos[2]);
+        Comprobacion.categoriaOk(categoria);
+        this.categoria = (trozos[2]);
+    }
     public String getCategoria() {
         return categoria;
     }
@@ -53,5 +64,22 @@ public class Palabra {
 
     public void arraychar(String palabra){
         palabra.toCharArray();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String toStringFichero() {
+        return id + ";" + level + ";" + incognita + ";" + categoria;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
     }
 }

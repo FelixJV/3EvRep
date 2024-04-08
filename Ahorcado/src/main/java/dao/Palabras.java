@@ -9,19 +9,51 @@ import net.datafaker.Faker;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Palabras {
+public class Palabras{
     private final ArrayList<Palabra> palabras;
     private static int autonumerico;
 
     public Palabras() {
+        String incognita = null;
+        String categoria = null;
+        int id = 0;
+        int level;
+
+        Faker faker = new Faker();
         //Aquí leer fichero cuando ya esté el fichero creado con las palabras del DataFaker
         this.palabras = new ArrayList<>();
+        for (int i = 0; i <10 ; i++) {
+            if(i<=5){
+                incognita = faker.animal().name();
+                categoria = "Animal";
+                id=i;
+            }
+            if(i>5 && i<=10){
+                incognita = faker.country().name();
+                categoria= "Pais";
+                id=i;
+            }
+            int nletras = incognita.length();
 
-        try {
-            palabras.add(new Palabra(autonumerico++, 1, "El mejor verano de mi vida", Categoria.comedia.name()));
-            palabras.add(new Palabra(autonumerico++, 1, "Misión Imposible IV fallout", Categoria.accion.name()));
+            if(nletras <= 6){
+                level = 1;
+            } if(nletras>6 && nletras<10){
+                level = 2;
+            }else{
+                level = 3;
+            }
 
-            Faker faker = new Faker();
+            try {
+                palabras.add(new Palabra(id, level, incognita, categoria));
+            } catch (CategoriaException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+
+
+      /*  try {
+
             String nombre = faker.gameOfThrones().character();
             for (int i = 0; i < 10; i++) {
                 palabras.add(new Palabra(autonumerico++, 2, faker.pokemon().name(), Categoria.pokemon.name()));
@@ -29,7 +61,7 @@ public class Palabras {
         } catch (CategoriaException e) {
             System.out.println(e.getMessage());
         }
-
+*/
     }
 
     public Palabras(ArrayList<Palabra> Palabras) {
@@ -53,6 +85,10 @@ public class Palabras {
         this.palabras.addAll(Palabras);
     }
 
+    public ArrayList<Palabra> getPalabras() {
+        return palabras;
+    }
+
     public boolean eliminaPalabra(int i) {
         //i posicion
         //palabras.remove(i);
@@ -65,6 +101,11 @@ public class Palabras {
             }
         }
         return salir;
+    }
+
+
+    public int compareTo(Palabra o) {
+        return 0;
     }
 }
 

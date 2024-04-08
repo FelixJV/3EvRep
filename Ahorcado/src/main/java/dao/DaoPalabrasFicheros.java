@@ -12,12 +12,10 @@ public class DaoPalabrasFicheros {
     public static final String FICHERO = "Fichero";
     public static final String FICHEROB = "FicheroBinario";
     public static void crearFicheros() throws IOException {
-        File fichero1 = new File(FICHERO);
-        File fichero2 = new File(FICHEROB);
+        File fichero1 = new File(FICHERO);;
         if (!fichero1.exists())
                 fichero1.createNewFile();
-        if (!fichero2.exists())
-            fichero2.createNewFile();
+
     }
     public static void crearFicheros(String nombreFichero) throws IOException {
         File fichero1 = new File(nombreFichero);
@@ -28,7 +26,7 @@ public class DaoPalabrasFicheros {
         return leerFichero(DaoPalabrasFicheros.FICHERO);
     }
     public static List<Palabra> leerFichero(String fichero) throws IOException {
-        crearFicheros();
+
         ArrayList<Palabra> auxiliar = null;
         try (Scanner sc = new Scanner(new File(fichero))) {
             auxiliar = new ArrayList<>();

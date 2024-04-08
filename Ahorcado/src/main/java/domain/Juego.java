@@ -27,6 +27,12 @@ public class Juego {
         }
 
     }
+    public void nuevoJuego(){
+
+    }
+    public void juegoguardado(){
+
+    }
     public void bucleJuego(){
         boolean salir=false;
         Scanner sc = new Scanner(System.in);
