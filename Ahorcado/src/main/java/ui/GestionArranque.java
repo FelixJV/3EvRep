@@ -5,7 +5,6 @@ import common.Constantes;
 import service.GestionPalabras;
 import service.IGestionPalabras;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -22,46 +21,21 @@ public class GestionArranque {
         servicio = new GestionPalabras();
     }
 
-    public static int mostrarPrimerMenu(){
-        int num=0;
-
-        System.out.println(Constantes.MENU+"\n"+Constantes.JUGAR+"\n"+Constantes.GESTIONAR);
-        try(Scanner lector = new Scanner(System.in)){
-             num = lector.nextInt();
-            //tratar la excepción para evitar que se pare el programa si no introduce un número
-        }catch (InputMismatchException e){
-            System.out.println(e.getMessage());
-        }
-        return num;
-    }
-        public void opcionesUno(){
-            int op = mostrarPrimerMenu();
-            switch (op) {
-                case 1:
-                    opcionesMenuJ();
-                    break;
-                case 2:
-                    opcionesMenuG();
-                    break;
-                default:
-                    break;
-            }
-        }
-    public static int mostrarMenuG(){
+    public static int mostrarMenu(){
         Scanner lector = new Scanner(System.in);
         System.out.println(Constantes.MENU+"\n"+Constantes.OPCION1+"\n"+Constantes.OPCION2+"\n"+Constantes.OPCION3+"\n"+Constantes.OPCION4);
         int num = lector.nextInt(); //tratar la excepción para evitar que se pare el programa si no introduce un número
         return num;
     }
-    public static int mostarMenuJ(){
-        Scanner lector = new Scanner(System.in);
-        System.out.println(Constantes.MENU+"\n"+Constantes.NUEVA+"\n"+Constantes.CARGAR);
-        int num = lector.nextInt(); //tratar la excepción para evitar que se pare el programa si no introduce un número
-        return num;
-    }
+    public void opciones(int opcion){
+        switch(opcion){
+            case 1:
+                System.out.println(servicio.getListaPalabras());
 
-    public void opcionesMenuG(){
-        int opcion = mostrarMenuG();
+        }
+    }
+    public void opciones(){
+        int opcion = mostrarMenu();
         switch(opcion){
             case 0:
                 System.out.println();
@@ -71,15 +45,18 @@ public class GestionArranque {
                 System.out.println(servicio.eliminarPalabra(2));
         }
     }
-    public void opcionesMenuJ(){
-        int opcion = mostrarMenuJ();
+    public void opcionesJugar(){
+        int opcion = mostrarMenu();
+        switch(opcion){
+            case 0:
+                System.out.println(servicio.escribirFichero());
+            case 1:
+                System.out.println(servicio.getListaPalabras());
+            case 4:
+                System.out.println(servicio.eliminarPalabra(2));
+        }
+    }
 
-    }
-    public static String pedirChar() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Dime un letra o Juegatela");
-        return sc.nextLine();
-    }
     public void mostrarMenuArranque(){
         Scanner lector = new Scanner(System.in);
         System.out.println(Constantes.MENU+"\n"+Constantes.JUGAR+"\n"+Constantes.GESTIONAR);
