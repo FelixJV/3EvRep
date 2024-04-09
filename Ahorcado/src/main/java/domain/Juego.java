@@ -1,6 +1,7 @@
 package domain;
 
 import common.CategoriaException;
+import ui.GestionArranque;
 
 import java.awt.color.ICC_ColorSpace;
 import java.sql.SQLOutput;
@@ -35,10 +36,10 @@ public class Juego {
     }
     public void bucleJuego(){
         boolean salir=false;
-        Scanner sc = new Scanner(System.in);
+
         do {
-            System.out.println("Dime un letra o Juegatela");
-            String userStr = sc.nextLine();
+            String userStr = GestionArranque.pedirChar();
+
             if(userStr.length()==1){
                 char letra = userStr.charAt(0);
                 comprobarPalabra(letra);

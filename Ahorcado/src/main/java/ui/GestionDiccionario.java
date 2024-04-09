@@ -36,9 +36,7 @@ public class GestionDiccionario {
                     mostarMenuJugar();
                 break;
                 case 2:
-
-                    System.out.println(Constantes.MENU+"\n"+Constantes.OPCION1+"\n"+Constantes.OPCION2+"\n"+Constantes.OPCION3+"\n"+Constantes.OPCION4);
-                    int num = lector.nextInt();
+                    mostrarMenuGestion();;
             }
         }while(salir1==false);
          //tratar la excepción para evitar que se pare el programa si no introduce un número
@@ -57,5 +55,19 @@ public class GestionDiccionario {
 
             }
         }while(!salir);
+    }
+    public static int mostrarMenuGestion(){
+        boolean volver = false;
+        Scanner sc = new Scanner(System.in);
+        System.out.println(Constantes.MENU+"\n"+Constantes.OPCION1+"\n"+Constantes.OPCION2+"\n"+Constantes.OPCION3+"\n"+Constantes.OPCION4);
+        return sc.nextInt();
+    }
+    public void gestionesCRUD(int opcion){
+        switch (opcion){
+            case 1: //listar
+                System.out.println((servicio.getListaPalabras());
+
+        }
+
     }
 }
