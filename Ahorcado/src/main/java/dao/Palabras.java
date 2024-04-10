@@ -14,11 +14,12 @@ public class Palabras{
     private static int autonumerico;
 
     public Palabras() {
-        String incognita = null;
+
+       String incognita = null;
         String categoria = null;
         int id = 0;
-        int level;
-
+        int level =0;
+/*
         Faker faker = new Faker();
         //Aquí leer fichero cuando ya esté el fichero creado con las palabras del DataFaker
         this.palabras = new ArrayList<>();
@@ -49,19 +50,17 @@ public class Palabras{
                 throw new RuntimeException(e);
             }
         }
+*/
 
+this.palabras = new ArrayList<>();
+        try {
 
+                palabras.add(new Palabra(id,level,incognita,categoria));
 
-      /*  try {
-
-            String nombre = faker.gameOfThrones().character();
-            for (int i = 0; i < 10; i++) {
-                palabras.add(new Palabra(autonumerico++, 2, faker.pokemon().name(), Categoria.pokemon.name()));
-            }
         } catch (CategoriaException e) {
             System.out.println(e.getMessage());
         }
-*/
+
     }
 
     public Palabras(ArrayList<Palabra> Palabras) {
@@ -90,9 +89,7 @@ public class Palabras{
     }
 
     public boolean eliminaPalabra(int i) {
-        //i posicion
-        //palabras.remove(i);
-        //i -> id
+
         boolean salir = false;
         for (int j = 0; j < palabras.size() && !salir; j++) {
             if (palabras.get(j).getId()==i) {
@@ -102,8 +99,28 @@ public class Palabras{
         }
         return salir;
     }
+    public void insertarPalabra(int id, int level, String incognita, String categoria){
+        try {
+            palabras.add(new Palabra(id,level,incognita,categoria));
+        } catch (CategoriaException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
+    public void editarCategoría(int id, String categoria){
+        boolean salir = false;
+        for (int j = 0; j < palabras.size() && !salir; j++) {
+            if (palabras.get(j).getId()==id) {
+                try {
+                    palabras.get(j).setCategoria(categoria);
+                } catch (CategoriaException e) {
+                    throw new RuntimeException(e);
+                }
+                salir = true;
+            }
+        }
 
+    }
     public int compareTo(Palabra o) {
         return 0;
     }

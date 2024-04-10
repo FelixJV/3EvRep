@@ -17,5 +17,10 @@ public class MainFicheros {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        try {
+            DaoPalabrasFicheros.leerFichero("Primero");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

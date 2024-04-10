@@ -45,6 +45,12 @@ public class Palabra implements Comparable{
         Comprobacion.categoriaOk(categoria);
         this.categoria = (trozos[2]);
     }
+
+    public Palabra() {
+
+    }
+
+
     public String getCategoria() {
         return categoria;
     }

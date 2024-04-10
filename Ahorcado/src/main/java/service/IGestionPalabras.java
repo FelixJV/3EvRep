@@ -20,12 +20,12 @@ public interface IGestionPalabras {
      * @return
      * @throws CategoriaException
      */
-    public boolean insertarPalabra(int id, int level, String incognita, String categoria) throws CategoriaException;
+    public void insertarPalabra(int id, int level, String incognita, String categoria) throws CategoriaException;
     public List<Palabra> listar(String categoria);
     public List<Palabra> listar(int nivel, String categoria);
     public List<Palabra> listar (int nivel);
     public List<Palabra> listarPalabras(boolean ascendente);
-    public boolean modificarCategoria(int id, String categoria) throws CategoriaException;
+    public void modificarCategoria(int id, String categoria) throws CategoriaException;
     public boolean modificarPalabra(int id, String incognita);
 
     public List<Palabra> getListaPalabrasCategoria();

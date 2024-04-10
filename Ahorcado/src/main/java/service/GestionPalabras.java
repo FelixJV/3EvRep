@@ -4,6 +4,7 @@ import common.CategoriaException;
 import dao.DaoPalabras;
 import dao.DaoPalabrasFicheros;
 import dao.DaoPalabrasImplementacion;
+import dao.Palabras;
 import domain.Palabra;
 
 import java.io.FileNotFoundException;
@@ -39,8 +40,9 @@ public class GestionPalabras implements IGestionPalabras {
     }
 
     @Override
-    public boolean insertarPalabra(int id, int level, String incognita, String categoria) throws CategoriaException {
-        return false;
+    public void insertarPalabra(int id, int level, String incognita, String categoria) throws CategoriaException {
+        daoPalabras.insertarPalabra(id, level, incognita, categoria);
+
     }
 
 
@@ -65,8 +67,8 @@ public class GestionPalabras implements IGestionPalabras {
     }
 
     @Override
-    public boolean modificarCategoria(int id, String categoria) throws CategoriaException {
-        return false;
+    public void modificarCategoria(int id, String categoria) throws CategoriaException {
+        daoPalabras.modificarCategoria(id, categoria);
     }
 
     @Override

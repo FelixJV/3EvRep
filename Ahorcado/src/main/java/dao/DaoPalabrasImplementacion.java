@@ -2,6 +2,7 @@ package dao;
 
 import domain.Palabra;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -24,7 +25,10 @@ public class DaoPalabrasImplementacion implements DaoPalabras {
 
     @Override
     public boolean insertarPalabra(int id, int level, String incognita, String categoria) {
-        return false;
+        boolean done=false;
+        lista.insertarPalabra(id, level, incognita, categoria);
+        return done;
+
     }
 
     @Override
@@ -62,8 +66,9 @@ public class DaoPalabrasImplementacion implements DaoPalabras {
     }
 
     @Override
-    public boolean modificarCategoria(int id, String categoria) {
-        return false;
+    public void modificarCategoria(int id, String categoria) {
+
+
     }
 
     @Override

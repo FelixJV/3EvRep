@@ -34,8 +34,7 @@ public class DaoPalabrasFicheros {
                 String cadena = sc.nextLine();
                 String[] trozos = cadena.split(";");
                 try {
-                    //auxiliar.add(new Palabra(Integer.parseInt(trozos[0]),Integer.parseInt(trozos[1]),trozos[2],trozos[3]));
-                    auxiliar.add(new Palabra(cadena));
+                    auxiliar.add(new Palabra(Integer.parseInt(trozos[0]),Integer.parseInt(trozos[1]),trozos[2],trozos[3]));
                 } catch (CategoriaException e) {
                     System.out.println(e.getMessage());
                 }
