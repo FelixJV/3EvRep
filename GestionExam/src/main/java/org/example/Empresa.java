@@ -1,6 +1,8 @@
 package org.example;
 
 import javax.swing.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 
@@ -9,7 +11,46 @@ public class Empresa {
 
     public static String[] provincias = {"Barcelona", "Lugo", "Madrid", "Malaga", "Valencia", "Vizcaya"};
 
-    public Empresa() {
+    public Empresa(){
+        ArrayList<Vehiculo> vehiculos = new ArrayList<>();
+        HashMap<Integer,ArrayList<Vehiculo>> vehiculoss = new HashMap<>();
+        for (int i = 0; i < 50; i++) {
+            if (i % 2 == 0 && i<10) {
+                vehiculos.add( new Coche(provincias[0]));
+            }else{
+                vehiculos.add( new Autobus(provincias[0]));
+            }
+            if (i % 2 == 0 && i<10) {
+                vehiculos.add( new Coche(provincias[1]));
+            }else{
+                vehiculos.add( new Autobus(provincias[1]));
+            }
+            if (i % 2 == 0 && i<10) {
+                vehiculos.add( new Coche(provincias[2]));
+            }else{
+                vehiculos.add( new Autobus(provincias[2]));
+            }
+            if (i % 2 == 0 && i<10) {
+                vehiculos.add( new Coche(provincias[3]));
+            }else{
+                vehiculos.add( new Autobus(provincias[3]));
+            }
+            if (i % 2 == 0 && i<10) {
+                vehiculos.add( new Coche(provincias[4]));
+            }else{
+                vehiculos.add( new Autobus(provincias[4]));
+            }
+            if (i % 2 == 0 && i<10) {
+                vehiculos.add( new Coche(provincias[5]));
+            }else{
+                vehiculos.add( new Autobus(provincias[5]));
+            }
+
+
+        }
+
+    }
+    /*public Empresa() {
         vehiculos = new Vehiculo[6][6];
         for (int i = 0; i < 7; i++) {
             if (i == 0) {
@@ -72,7 +113,7 @@ public class Empresa {
                 }
             }
         }
-    }
+    }*/
     Scanner sc = new Scanner(System.in);
     public void crearAnyaVehiculo(String provincia){
         System.out.println("Coche o Bus?");
